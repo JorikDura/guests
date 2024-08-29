@@ -17,7 +17,7 @@ final readonly class GuestStoreAction
         $data = $request->validated();
 
         if (!array_key_exists('country_id', $data)) {
-            $data['country_id'] = $request->get('country_id');
+            $data['country_id'] = $request->input('country_id');
         }
 
         return Guest::create($data)

@@ -18,15 +18,19 @@ final readonly class GuestUpdateAction
     ): Guest {
         $data = $request->validated();
 
-        if (!array_key_exists('country_id', $data)) {
-            $request->whenHas('country_id', function ($countryId) use ($data) {
-                $data['country_id'] = $countryId;
-            });
+        if ($this->isCountryIdExists($data, $countryId = $request->input('country_id'))) {
+            $data['country_id'] = $countryId;
         }
 
         return tap($guest, function (Guest $guest) use ($data) {
             $guest->update($data);
             return $guest->load(['country']);
         });
+    }
+
+    private function isCountryIdExists(array $data, $countryId): bool
+    {
+        return !array_key_exists('country_id', $data)
+            && !is_null($countryId);
     }
 }
