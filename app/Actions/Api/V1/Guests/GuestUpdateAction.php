@@ -7,6 +7,9 @@ namespace App\Actions\Api\V1\Guests;
 use App\Http\Requests\Api\V1\GuestUpdateRequest;
 use App\Models\Guest;
 
+/**
+ * Update guest
+ */
 final readonly class GuestUpdateAction
 {
     public function __invoke(
@@ -15,11 +18,11 @@ final readonly class GuestUpdateAction
     ): Guest {
         $data = $request->validated();
 
-        if (!array_key_exists('country_id', $data) && !is_null($countryId = $request->get('country_id'))) {
-            $data['country_id'] = $countryId;
+        if (!array_key_exists('country_id', $data)) {
+            $request->whenHas('country_id', function ($countryId) use ($data) {
+                $data['country_id'] = $countryId;
+            });
         }
-
-        unset($request);
 
         return tap($guest, function (Guest $guest) use ($data) {
             $guest->update($data);

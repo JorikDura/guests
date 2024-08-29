@@ -9,7 +9,7 @@ use App\Http\Requests\Api\V1\GuestsIndexRequest;
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
 
-final readonly class OrderByDateFilter implements Filter
+final readonly class OrderByDateGuestFilter implements Filter
 {
     public function __construct(
         private GuestsIndexRequest $request

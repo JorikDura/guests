@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\V1\CountriesIndexController;
+use App\Http\Controllers\Api\V1\Countries\CountriesIndexController;
 use App\Http\Controllers\Api\V1\Guests\GuestsDeleteController;
 use App\Http\Controllers\Api\V1\Guests\GuestsIndexController;
 use App\Http\Controllers\Api\V1\Guests\GuestsShowController;

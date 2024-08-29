@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Api\V1;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -17,9 +17,8 @@ class CountryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'dial_code' => $this->dial_code,
-            'code' => $this->code,
+            'name' => $this->country_name,
+            'code' => $this->dial_code
         ];
     }
 }

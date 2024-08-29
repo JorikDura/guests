@@ -14,9 +14,8 @@ class Country extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'name',
-        'dial_code',
-        'code',
+        'country_name',
+        'dial_code'
     ];
 
     public function guests(): HasMany

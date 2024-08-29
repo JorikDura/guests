@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Api\V1;
+namespace app\Http\Controllers\Api\V1\Countries;
 
 use App\Actions\Api\V1\Countries\CountriesIndexAction;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CountryResource;
+use App\Http\Resources\Api\V1\CountryResource;
 
 class CountriesIndexController extends Controller
 {

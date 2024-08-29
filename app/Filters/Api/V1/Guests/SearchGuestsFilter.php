@@ -17,7 +17,7 @@ final class SearchGuestsFilter extends SearchableFilter implements Filter
         'surname',
         'email',
         'phone_number',
-        'country'
+        'country_name'
     ];
 
     public function __construct(

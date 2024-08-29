@@ -24,6 +24,4 @@ class GuestStoreRequest extends FormRequest
             'email' => ['nullable', 'email', 'unique:guests,email'],
         ];
     }
-
-
 }
